@@ -1,9 +1,8 @@
 <template>
 <v-app id="example-3" standalone>
-  <v-navigation-drawer permanent clipped light>
+  <v-navigation-drawer temporary clipped light v-model="drawer" overflow>
     <v-list dense class="pt-0">
       <v-list-tile v-for="menu in menus" :key="menu.title">
-
         <v-list-tile-action>
           <v-icon>{{ menu.icon }}</v-icon>
         </v-list-tile-action>
@@ -17,7 +16,8 @@
     </v-list>
   </v-navigation-drawer>
   <v-toolbar class="teal" dark>
-    <v-toolbar-title v-on:click.native="gotoHome">Sistem Pusat</v-toolbar-title>
+     <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+    <v-toolbar-title v-on:click.native="gotoHome">Sistem Pusat MPS</v-toolbar-title>
   </v-toolbar>
   <main>
 
@@ -35,7 +35,7 @@
 export default {
   data() {
     return {
-      drawer: null,
+      drawer: false,
       menus: [{
           title: 'Penjualan',
           icon: 'dashboard',

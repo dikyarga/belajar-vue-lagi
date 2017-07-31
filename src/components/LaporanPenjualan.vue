@@ -34,13 +34,19 @@ let host2 = 'http://udin.us/deniya2/api'
 
 export default {
   created() {
+    let self = this
     console.log('ready');
-    this.loadData(host1)
+    self.loadData(host1).then((isSuccess) => {
+
+      if (isSuccess) {
+        self.loadData(host2)
+      }
+    })
   },
   data() {
     return {
       loading: true,
-      pageTitle: 'Data Laporan Penjualan',
+      pageTitle: 'Laporan Penjualan',
       successFetchServer1: false,
       successFetchServer2: false,
       search: '',
@@ -76,26 +82,27 @@ export default {
   methods: {
     loadData(hostAPI) {
       let self = this
-      console.log('fetching data from : ', hostAPI);
-      axios({
-        method: 'get',
-        url: hostAPI + '/laporjual_rest'
-      }).then(res => {
-        // console.log('isi res : ', res.data.datalaporanpenjualan);
-        if (this.items.length === 0) {
-          this.items = res.data.datalaporanpenjualan
-          this.successFetchServer1 = true
-          // call from second API
-        } else {
-          console.log('kemari kah yang kedua ?');
-          console.log('isi  ya ', this.items);
-          // this.items.push(res.data.datalaporanpenjualan)
-          this.successFetchServer2 = true
-        }
+      return new Promise((resolve, reject) => {
+        console.log('fetching data from : ', hostAPI);
+        axios({
+          method: 'get',
+          url: hostAPI + '/laporjual_rest'
+        }).then(res => {
 
-        this.loading = false
-      }).catch(err => {
-        console.log('error saat ambil data dari server');
+          if (this.items.length === 0) {
+            this.items = res.data.datalaporanpenjualan
+            this.successFetchServer1 = true
+          } else {
+            self.items = self.items.concat(res.data.datalaporanpenjualan)
+
+            this.successFetchServer2 = true
+          }
+          resolve(true)
+
+          this.loading = false
+        }).catch(err => {
+          console.log('error saat ambil data dari server');
+        })
       })
     }
   }
