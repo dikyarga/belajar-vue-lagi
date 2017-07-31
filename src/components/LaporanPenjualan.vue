@@ -20,6 +20,7 @@
       <td class="text-xs-right">{{ props.item.hpp }}</td>
       <td class="text-xs-right">{{ props.item.jumlah }}</td>
       <td class="text-xs-right">{{ props.item.totjual }}</td>
+      <td class="text-xs-right">{{ props.item.tanggaljual }}</td>
       </template>
     </v-data-table>
   </v-card>
@@ -74,6 +75,10 @@ export default {
         {
           text: 'Total',
           value: 'totjual'
+        },
+        {
+          text: 'Tanggal Jual',
+          value: 'tanggaljual'
         }
       ],
       items: [],
