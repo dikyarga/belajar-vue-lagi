@@ -36,7 +36,13 @@ export default {
   data() {
     return {
       drawer: false,
-      menus: [{
+      menus: [
+        {
+          title: 'Home',
+          icon: 'home',
+          name: 'Home'
+        },
+        {
           title: 'Penjualan',
           icon: 'dashboard',
           name: 'LaporanPenjualan'
