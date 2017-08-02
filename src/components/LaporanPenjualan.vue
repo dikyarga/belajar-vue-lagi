@@ -1,5 +1,4 @@
 <template>
-
   <v-card>
     <v-alert success dismissible v-model="successFetchServer1">
       Sukses mengambil data dari server 1
@@ -8,13 +7,20 @@
       Sukses mengambil data dari server 2
     </v-alert>
     <v-spacer></v-spacer>
-    <div class="row mt-5 ml-5">
-      <span>Dari tanggal ：{{ startTime }}</span>
-      <date-picker :date="startTime" :option="dateOptions"></date-picker>
-      <span>sampai tanggal ：{{ endTime }}</span>
-      <date-picker :date="endTime" :option="dateOptions"></date-picker>
-      <v-btn outline class="indigo--text" @click.native="filterByDate()">Tampilkan</v-btn>
-
+    <div id="example-1">
+        <v-layout row wrap class="pt-5 pb-2 darker">
+          <v-flex xs12 md4 offset-xs1>
+            <span>Dari tanggal ：</span>
+            <date-picker :date="startTime" :option="dateOptions"></date-picker>
+          </v-flex>
+          <v-flex xs12 md4 offset-xs1>
+            <span>sampai tanggal ：</span>
+            <date-picker :date="endTime" :option="dateOptions"></date-picker>
+          </v-flex>
+          <v-flex xs12 md1>
+            <v-btn outline class="indigo--text" @click.native="filterByDate()">Tampilkan</v-btn>
+          </v-flex>
+        </v-layout>
     </div>
     <v-card-title>
       <h4>{{ pageTitle }}</h4>
@@ -51,7 +57,7 @@ export default {
     self.loadData(host1).then((isSuccess) => {
 
       if (isSuccess) {
-        // self.loadData(host2)
+        self.loadData(host2)
       }
     })
   },
@@ -156,7 +162,7 @@ export default {
 
       let filteredDataByDate = this.items.filter(data => {
         // console.log('isi tanggal : ', data.tanggal, ' ---- ', this.startTime.time, this.endTime.time);
-        return moment(data.tanggal, "YYYY-MM-DD HH:mm:ss").isBetween(this.startTime.time, this.endTime.time, null, '[]')
+        return moment(data.tanggal, "YYYY-MM-DD").isBetween(this.startTime.time, this.endTime.time, null, '[]')
       })
 
       this.items = filteredDataByDate
@@ -171,4 +177,7 @@ export default {
 </script>
 
 <style lang="css">
+.darker {
+  background-color: #eee;
+}
 </style>
