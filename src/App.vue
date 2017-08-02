@@ -44,13 +44,18 @@ export default {
         },
         {
           title: 'Penjualan',
-          icon: 'dashboard',
+          icon: 'trending_up',
           name: 'LaporanPenjualan'
         },
         {
           title: 'Pembelian',
-          icon: 'question_answer',
+          icon: 'shopping_basket',
           name: 'LaporanPembelian'
+        },
+        {
+          title: 'Canvaser',
+          icon: 'today',
+          name: 'LaporanCanvaser'
         }
       ],
       right: null
