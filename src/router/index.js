@@ -5,6 +5,7 @@ import Home from '../components/Home.vue'
 import LaporanPenjualan from '../components/LaporanPenjualan.vue'
 import LaporanPembelian from '../components/LaporanPembelian.vue'
 import LaporanCanvaser from '../components/LaporanCanvaser.vue'
+import LaporanStok from '../components/LaporanStok.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/laporan-canvaser',
       name: 'LaporanCanvaser',
       component: LaporanCanvaser
+    },
+    {
+      path: '/laporan-stok',
+      name: 'LaporanStok',
+      component: LaporanStok
     }
   ]
 })
