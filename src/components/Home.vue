@@ -38,7 +38,7 @@ export default {
         {
           name: 'Rekap Produk',
           icon: '/src/assets/images/rekap-produk.png',
-          pageComponentName: 'RekapProduk'
+          pageComponentName: 'LaporRekap'
         },
         {
           name: 'Laporan Per Canvaser',

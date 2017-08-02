@@ -6,6 +6,7 @@ import LaporanPenjualan from '../components/LaporanPenjualan.vue'
 import LaporanPembelian from '../components/LaporanPembelian.vue'
 import LaporanCanvaser from '../components/LaporanCanvaser.vue'
 import LaporanStok from '../components/LaporanStok.vue'
+import LaporRekap from '../components/LaporRekap.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,12 @@ export default new Router({
       path: '/laporan-stok',
       name: 'LaporanStok',
       component: LaporanStok
+    },
+    {
+      path: '/laporan-rekap',
+      name: 'LaporRekap',
+      component: LaporRekap
     }
+
   ]
 })

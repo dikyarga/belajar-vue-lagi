@@ -61,6 +61,11 @@ export default {
           title: 'Stok',
           icon: 'store',
           name: 'LaporanStok'
+        },
+        {
+          title: 'Rekap',
+          icon: 'store',
+          name: 'LaporRekap'
         }
       ],
       right: null
