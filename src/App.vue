@@ -56,6 +56,11 @@ export default {
           title: 'Canvaser',
           icon: 'today',
           name: 'LaporanCanvaser'
+        },
+        {
+          title: 'Stok',
+          icon: 'store',
+          name: 'LaporanStok'
         }
       ],
       right: null
