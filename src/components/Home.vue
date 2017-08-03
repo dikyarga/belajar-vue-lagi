@@ -23,7 +23,7 @@ export default {
         {
           name: 'Stok',
           icon: '/src/assets/images/stok.png',
-          pageComponentName: 'Stok'
+          pageComponentName: 'LaporanStok'
         },
         {
           name: 'Laporan Penjualan',
@@ -41,7 +41,7 @@ export default {
           pageComponentName: 'LaporRekap'
         },
         {
-          name: 'Laporan Per Canvaser',
+          name: 'Laporan Canvaser',
           icon: '/src/assets/images/canvaser.png',
           pageComponentName: 'LaporanCanvaser'
         }

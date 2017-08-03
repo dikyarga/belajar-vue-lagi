@@ -31,11 +31,13 @@
       <template slot='items' scope='props'>
       <td class="text-xs-right">{{ props.item.invoiceno }}</td>
       <td class="text-xs-right">{{ props.item.nm_cabang }}</td>
+      <td class="text-xs-right">{{ props.item.noproduct }}</td>
       <td class="text-xs-right">{{ props.item.productname }}</td>
       <td class="text-xs-right">{{ props.item.hpp }}</td>
       <td class="text-xs-right">{{ props.item.jumlah }}</td>
       <td class="text-xs-right">{{ props.item.totjual }}</td>
-      <td class="text-xs-right">{{ props.item.tanggaljual }}</td>
+      <td class="text-xs-right">{{ props.item.tanggaltransaksi }}</td>
+      <td class="text-xs-right">{{ props.item.Canvaser }}</td>
       </template>
     </v-data-table>
   </v-card>
@@ -70,12 +72,16 @@ export default {
       search: '',
       pagination: {},
       headers: [{
-          text: 'Invoice Number',
+          text: 'No Nota',
           value: 'invoiceno'
         },
         {
           text: 'Nama Cabang',
           value: 'nm_cabang'
+        },
+        {
+          text: 'No Produk',
+          value: 'noproduct'
         },
         {
           text: 'Nama Produk',
@@ -94,8 +100,12 @@ export default {
           value: 'totjual'
         },
         {
-          text: 'Tanggal Jual',
-          value: 'tanggaljual'
+          text: 'Tanggal',
+          value: 'tanggaltransaksi'
+        },
+        {
+          text: 'Canvaser',
+          value: 'Canvaser'
         }
       ],
       items: [],

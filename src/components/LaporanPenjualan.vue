@@ -152,7 +152,7 @@ export default {
 
           this.loading = false
         }).catch(err => {
-          console.log('error saat ambil data dari server');
+          console.log('error saat ambil data dari server : ', hostAPI);
         })
       })
     },
